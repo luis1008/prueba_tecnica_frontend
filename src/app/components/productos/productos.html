@@ -1,0 +1,42 @@
+<div class="products-container">
+  <h2>Gestión de Productos</h2>
+
+  <form (ngSubmit)="addProduct()">
+    <h3>Agregar Nuevo Producto</h3>
+    <div class="form-group">
+      <label for="codigo">Código:</label>
+      <input type="text" id="codigo" [(ngModel)]="newProduct.codigo_producto" name="codigo" required>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" [(ngModel)]="newProduct.nombre_producto" name="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="precio">Precio:</label>
+      <input type="number" id="precio" [(ngModel)]="newProduct.precio" name="precio" required>
+    </div>
+    <button type="submit">Agregar Producto</button>
+  </form>
+
+  <hr>
+
+  <h3>Lista de Productos</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Fecha de Creación</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product.codigo_producto }}</td>
+        <td>{{ product.nombre_producto }}</td>
+        <td>${{ product.precio }}</td>
+        <td>{{ product.fecha_creacion | date:'medium' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
