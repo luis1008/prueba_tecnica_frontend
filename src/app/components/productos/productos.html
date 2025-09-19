@@ -21,22 +21,16 @@
   <hr>
 
   <h3>Lista de Productos</h3>
-  <table>
-    <thead>
-      <tr>
-        <th>Código</th>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Fecha de Creación</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{ product.codigo_producto }}</td>
-        <td>{{ product.nombre_producto }}</td>
-        <td>${{ product.precio }}</td>
-        <td>{{ product.fecha_creacion | date:'medium' }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="product-grid">
+    <div *ngFor="let product of products" class="product-card">
+      <div class="product-image-container">
+        <img src="https://via.placeholder.com/250" alt="{{ product.nombre_producto }}">
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">{{ product.nombre_producto }}</h3>
+        <p class="product-price">${{ product.precio }}</p>
+        <button class="add-to-cart">Ver Detalles</button>
+      </div>
+    </div>
+  </div>
 </div>
